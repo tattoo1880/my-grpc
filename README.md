@@ -21,12 +21,12 @@ protoc --go_out=. --go-grpc_out=. proto/user.proto
 
 
 ```shell
-protoc -I . \                                                                                                                                                                                    ✔ 
+protoc -I . \
+  -I $(go env GOPATH)/pkg/mod/github.com/googleapis/googleapis@*/ \
   -I $(go list -m -f "{{.Dir}}" github.com/grpc-ecosystem/grpc-gateway/v2) \
-  -I $(go list -m -f "{{.Dir}}" github.com/googleapis/googleapis) \
-  --go_out ./gen \
-  --go-grpc_out ./gen \
-  --grpc-gateway_out ./gen \
+  --go_out=. \
+  --go-grpc_out=. \
+  --grpc-gateway_out=. \
   proto/user.proto
 
 ```
@@ -43,4 +43,21 @@ option go_package = "github.com/tattoo1880/my-grpc/gen;gen";
 --go_out=. \
 --go-grpc_out=. \
 --grpc-gateway_out=.
+```
+
+
+
+## 推荐写法
+```shell
+protoc \
+  -I . \
+  -I $(go env GOPATH)/pkg/mod/github.com/googleapis/googleapis@*/ \
+  --go_out=./gen --go_opt=paths=source_relative \
+  --go-grpc_out=./gen --go-grpc_opt=paths=source_relative \
+  --grpc-gateway_out=./gen --grpc-gateway_opt=paths=source_relative \
+  proto/user.proto
+  
+  
+  
+  option go_package = "github.com/tattoo1880/myrepo/gen;gen";
 ```

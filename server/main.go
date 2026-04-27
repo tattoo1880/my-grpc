@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	pb "github.com/tattoo1880/my-grpc/gen/gen"
+	pb "github.com/tattoo1880/my-grpc/gen"
 	"google.golang.org/grpc"
 	"log"
 	"net"

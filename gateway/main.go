@@ -9,7 +9,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 
-	pb "github.com/tattoo1880/my-grpc/gen/gen"
+	pb "github.com/tattoo1880/my-grpc/gen"
 )
 
 func main() {
