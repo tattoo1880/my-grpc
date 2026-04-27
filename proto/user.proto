@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "github.com/tattoo1880/my-grpc;proto";
+
+// 请求
+message UserRequest {
+  int32 id = 1;
+}
+
+// 响应
+message UserResponse {
+  int32 id = 1;
+  string name = 2;
+}
+
+// 服务定义
+service UserService {
+  rpc GetUser(UserRequest) returns (UserResponse);
+}
