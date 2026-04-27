@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+
+git add .
+git commit -m "update"
+git push origin main
+
+
+git tag v0.2.0
+git push origin v0.2.0

@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"google.golang.org/grpc/credentials/insecure"
 	"log"
 	"time"
 
@@ -11,13 +12,19 @@ import (
 )
 
 func main() {
-	conn, err := grpc.Dial("localhost:50051", grpc.WithInsecure())
+	//conn, err := grpc.Dial("localhost:50051", grpc.WithInsecure())
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
+	//defer conn.Close()
+
+	newClient, err := grpc.NewClient("localhost:50051", grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer conn.Close()
+	defer newClient.Close()
 
-	client := pb.NewUserServiceClient(conn)
+	client := pb.NewUserServiceClient(newClient)
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
