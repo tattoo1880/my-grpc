@@ -2,7 +2,9 @@ syntax = "proto3";
 
 package proto;
 
-option go_package = "/proto";
+option go_package = "/gen";
+
+import "google/api/annotations.proto";
 
 // 请求
 message UserRequest {
@@ -17,5 +19,9 @@ message UserResponse {
 
 // 服务定义
 service UserService {
-  rpc GetUser(UserRequest) returns (UserResponse);
+  rpc GetUser(UserRequest) returns (UserResponse) {
+    option (google.api.http) = {
+      get: "/v1/user/{id}"
+    };
+  }
 }

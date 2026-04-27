@@ -4,9 +4,10 @@
 // 	protoc        v7.34.1
 // source: proto/user.proto
 
-package proto
+package gen
 
 import (
+	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -123,14 +124,14 @@ var File_proto_user_proto protoreflect.FileDescriptor
 
 const file_proto_user_proto_rawDesc = "" +
 	"\n" +
-	"\x10proto/user.proto\x12\x05proto\"\x1d\n" +
+	"\x10proto/user.proto\x12\x05proto\x1a\x1cgoogle/api/annotations.proto\"\x1d\n" +
 	"\vUserRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\"2\n" +
 	"\fUserResponse\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name2A\n" +
-	"\vUserService\x122\n" +
-	"\aGetUser\x12\x12.proto.UserRequest\x1a\x13.proto.UserResponseB\bZ\x06/protob\x06proto3"
+	"\x04name\x18\x02 \x01(\tR\x04name2X\n" +
+	"\vUserService\x12I\n" +
+	"\aGetUser\x12\x12.proto.UserRequest\x1a\x13.proto.UserResponse\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/v1/user/{id}B\x06Z\x04/genb\x06proto3"
 
 var (
 	file_proto_user_proto_rawDescOnce sync.Once
