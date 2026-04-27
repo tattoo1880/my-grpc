@@ -1,21 +1,11 @@
 package main
 
 import (
+	"context"
+	pb "github.com/tattoo1880/my-grpc/proto"
 	"google.golang.org/grpc"
 	"log"
 	"net"
-)
-
-package main
-
-import (
-"context"
-"log"
-"net"
-
-pb "github.com/tattoo1880/my-grpc/proto"
-
-"google.golang.org/grpc"
 )
 
 // server 实现 gRPC 接口

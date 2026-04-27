@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package proto;
 
-option go_package = "github.com/tattoo1880/my-grpc;proto";
+option go_package = "/proto";
 
 // 请求
 message UserRequest {
